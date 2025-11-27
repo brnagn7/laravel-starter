@@ -1,4 +1,31 @@
-── src/                 (Laravel app will be created here)
+# Laravel Starter (Docker + PHP 8.2 + MySQL 8)
+
+A fully containerized Laravel starter kit using PHP 8.2, Composer, MySQL 8, and phpMyAdmin. Includes a clean project structure, Makefile shortcuts, and CI/CD-ready configuration. Built to streamline new Laravel project creation for freelance and production workflows.
+
+---
+
+## Features
+
+- PHP 8.2 container with Composer
+- MySQL 8 database container
+- phpMyAdmin for database management (port 8081)
+- Dockerized development environment
+- Makefile shortcuts for common tasks
+- Clean Laravel-optimized .gitignore
+- CI/CD-ready structure
+- Standardized folder layout for repeatable workflows
+
+---
+
+## Architecture
+
+laravel-starter/
+├── docker/
+│   └── app/
+│       └── Dockerfile
+├── docker-compose.yml
+├── Makefile
+├── src/                 (Laravel app will be created here)
 └── README.md
 
 ---
