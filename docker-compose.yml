@@ -4,7 +4,7 @@ services:
     container_name: laravel_app
     working_dir: /var/www/html
     volumes:
-      - ./src:/var/www/html
+      - ./:/var/www/html
     ports:
       - "8000:8000"
     command: php artisan serve --host=0.0.0.0 --port=8000

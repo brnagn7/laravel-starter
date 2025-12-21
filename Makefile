@@ -30,3 +30,8 @@ test:
 optimize:
 	docker compose exec app php artisan optimize
 
+deploy:
+	./deploy/deploy.sh
+
+.PHONY: deploy
+
