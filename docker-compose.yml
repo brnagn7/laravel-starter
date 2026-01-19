@@ -1,13 +1,23 @@
+version: "3.8"
+
 services:
   app:
     build: ./docker/app
     container_name: laravel_app
-    volumes:
-      - ./:/var/www/html
     ports:
       - "8080:80"
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/vendor   # 👈 IMPORTANT: protects vendor from being overwritten
     depends_on:
       - mysql
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      DB_HOST: mysql
+      DB_DATABASE: app
+      DB_USERNAME: appuser
+      DB_PASSWORD: appsecret
 
   mysql:
     image: mysql:8.0
@@ -20,9 +30,11 @@ services:
       MYSQL_PASSWORD: appsecret
     volumes:
       - dbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin:latest
     container_name: laravel_phpmyadmin
     restart: unless-stopped
     depends_on:
